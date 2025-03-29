@@ -38,7 +38,7 @@
 
 ###
 
-<p align="left">I'm FaZeTitans (Axel) from France<br><br>- 🔭 I’m working on an API<br>- 📚 I'm currently learning SwiftUI<br>- ⚡ Comfort kills dreams</p>
+<p align="left">I'm FaZeTitans (Axel) from France<br><br>- 🔭 I’m working on a secret project<br>- 📚 I'm currently learning ...<br>- ⚡ Comfort kills dreams</p>
 
 ###
 
@@ -65,9 +65,13 @@
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="javascript logo"  />
   <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" height="40" alt="vue.js logo"  />
+  <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" height="40" alt="nodejs logo"  />
   <img width="12" />
   <img src="https://skillicons.dev/icons?i=express" height="40" alt="express logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastify/fastify-original.svg" height="40" alt="fastify logo"  />
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/discordjs/discordjs-original.svg" height="40" alt="discordjs logo"  />
   <img width="12" />
@@ -127,7 +131,9 @@
 ###
 
 <div align="center">
-  <img height="500" src="https://github-readme-stats.vercel.app/api/wakatime?username=fazetitans&layout=compact"  />
+  <a href="https://wakatime.com/@FaZeTitans">
+    <img height="500" src="https://github-readme-stats.vercel.app/api/wakatime?username=fazetitans&layout=compact"  />
+  </a>
 </div>
 
 ###
