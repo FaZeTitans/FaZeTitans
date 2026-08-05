@@ -45,11 +45,6 @@
 
 <div align="center">
   <img src="./metrics/languages.svg" alt="Most used languages" width="49%" />
-  <img src="./metrics/habits.svg" alt="Coding habits" width="49%" />
-</div>
-
-<div align="center">
-  <img src="./metrics/activity.svg" alt="Recent activity" width="49%" />
   <img src="./metrics/community.svg" alt="Community" width="49%" />
 </div>
 
