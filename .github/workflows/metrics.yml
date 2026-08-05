@@ -78,7 +78,6 @@ jobs:
           committer_token: ${{ secrets.GITHUB_TOKEN }}
           user: ${{ github.repository_owner }}
           base: ''
-          repositories_affiliations: owner, collaborator, organization_member
           plugin_achievements: yes
           plugin_achievements_display: compact
           plugin_achievements_threshold: C
