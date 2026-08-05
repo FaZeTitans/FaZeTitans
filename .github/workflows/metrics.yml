@@ -67,25 +67,6 @@ jobs:
           retries: 3
           retries_delay: 120
 
-  achievements:
-    name: Achievements
-    runs-on: ubuntu-latest
-    steps:
-      - uses: lowlighter/metrics@366f8b9dfe3a59656c67d5dcad9950f59c9bc96d
-        with:
-          filename: metrics/achievements.svg
-          token: ${{ secrets.METRICS_TOKEN }}
-          committer_token: ${{ secrets.GITHUB_TOKEN }}
-          user: ${{ github.repository_owner }}
-          base: ''
-          plugin_achievements: yes
-          plugin_achievements_display: compact
-          plugin_achievements_threshold: C
-          plugin_achievements_ignored: packager, sponsor, octonaut
-          config_timezone: Europe/Andorra
-          retries: 3
-          retries_delay: 120
-
   community:
     name: Community
     runs-on: ubuntu-latest

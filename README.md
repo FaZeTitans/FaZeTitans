@@ -48,10 +48,6 @@
   <img src="./metrics/community.svg" alt="Community" width="49%" />
 </div>
 
-<div align="center">
-  <img src="./metrics/achievements.svg" alt="GitHub achievements" />
-</div>
-
 ## Open source
 
 ### [fscopy](https://github.com/FaZeTitans/fscopy)
