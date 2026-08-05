@@ -1,0 +1,155 @@
+name: Generate metrics
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+
+  workflow_dispatch:
+
+  # Restricted to this file: the commits this workflow pushes would otherwise
+  # trigger it again.
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/metrics.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  overview:
+    name: Overview
+    runs-on: ubuntu-latest
+    steps:
+      # Pinned to a SHA: this workflow hands a token to third-party code.
+      - uses: lowlighter/metrics@366f8b9dfe3a59656c67d5dcad9950f59c9bc96d
+        with:
+          filename: metrics/overview.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          committer_token: ${{ secrets.GITHUB_TOKEN }}
+          user: ${{ github.repository_owner }}
+          template: classic
+          base: header, activity, community, repositories
+          base_indepth: yes
+          repositories_affiliations: owner, collaborator, organization_member
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
+          config_timezone: Europe/Andorra
+          config_display: large
+          config_animations: yes
+          config_octicon: yes
+          retries: 3
+          retries_delay: 120
+
+  languages:
+    name: Languages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@366f8b9dfe3a59656c67d5dcad9950f59c9bc96d
+        with:
+          filename: metrics/languages.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          committer_token: ${{ secrets.GITHUB_TOKEN }}
+          user: ${{ github.repository_owner }}
+          base: ''
+          repositories_affiliations: owner, collaborator, organization_member
+          plugin_languages: yes
+          plugin_languages_sections: most-used
+          plugin_languages_details: bytes-size, percentage
+          plugin_languages_limit: 8
+          plugin_languages_threshold: 1%
+          plugin_languages_other: yes
+          plugin_languages_ignored: >-
+            html, css, scss, dockerfile, makefile, cmake, batchfile, procfile,
+            objective-c, roff, tex, less, gnuplot, qmake, lex
+          config_timezone: Europe/Andorra
+          retries: 3
+          retries_delay: 120
+
+  habits:
+    name: Habits
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@366f8b9dfe3a59656c67d5dcad9950f59c9bc96d
+        with:
+          filename: metrics/habits.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          committer_token: ${{ secrets.GITHUB_TOKEN }}
+          user: ${{ github.repository_owner }}
+          base: ''
+          plugin_habits: yes
+          plugin_habits_from: 200
+          plugin_habits_days: 14
+          plugin_habits_facts: yes
+          plugin_habits_charts: yes
+          plugin_habits_charts_type: graph
+          plugin_habits_trim: yes
+          plugin_habits_languages_limit: 8
+          config_timezone: Europe/Andorra
+          retries: 3
+          retries_delay: 120
+
+  achievements:
+    name: Achievements
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@366f8b9dfe3a59656c67d5dcad9950f59c9bc96d
+        with:
+          filename: metrics/achievements.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          committer_token: ${{ secrets.GITHUB_TOKEN }}
+          user: ${{ github.repository_owner }}
+          base: ''
+          repositories_affiliations: owner, collaborator, organization_member
+          plugin_achievements: yes
+          plugin_achievements_display: compact
+          plugin_achievements_threshold: C
+          plugin_achievements_secrets: yes
+          plugin_achievements_limit: 0
+          config_timezone: Europe/Andorra
+          retries: 3
+          retries_delay: 120
+
+  activity:
+    name: Activity
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@366f8b9dfe3a59656c67d5dcad9950f59c9bc96d
+        with:
+          filename: metrics/activity.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          committer_token: ${{ secrets.GITHUB_TOKEN }}
+          user: ${{ github.repository_owner }}
+          base: ''
+          plugin_activity: yes
+          plugin_activity_limit: 6
+          plugin_activity_days: 0
+          # Defaults to `all`, which would publish private repository names.
+          plugin_activity_visibility: public
+          plugin_activity_timestamps: yes
+          plugin_activity_filter: pr, issue, release, review, ref/create, fork
+          config_timezone: Europe/Andorra
+          retries: 3
+          retries_delay: 120
+
+  community:
+    name: Community
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@366f8b9dfe3a59656c67d5dcad9950f59c9bc96d
+        with:
+          filename: metrics/community.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          committer_token: ${{ secrets.GITHUB_TOKEN }}
+          user: ${{ github.repository_owner }}
+          base: ''
+          plugin_people: yes
+          plugin_people_types: followers, following
+          plugin_people_limit: 28
+          plugin_people_size: 28
+          plugin_stars: yes
+          plugin_stars_limit: 4
+          config_timezone: Europe/Andorra
+          retries: 3
+          retries_delay: 120
